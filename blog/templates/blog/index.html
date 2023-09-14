@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block pagetitle %} {{ judul }} {% endblock %}
+{%block contents %} <ul class="nav">
+  <li class="nav-item"><a class="nav-link" href="/blog">All-post<a/></li>
+      {% for dataCategory in Categories  %}
+  <li class="nav-item"><a class="nav-link" href="/blog/category/{{dataCategory.category}}">{{dataCategory.category}}<a/></li>
+  
+  {% endfor %}</ul>{% for post in Posts %}
+<a href="/blog/post/{{ post.slug }}" title="">
+  <h2>{{ post.judul }}</h2>
+</a>
+<img src="{{ post.foto.url }}">
+<a style="color: white">{{ post.publish }}</a>
+
+{% endfor %} {% endblock %}

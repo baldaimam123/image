@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block pagetitle %}{% endblock %} 
+{% block contents %}
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link" href="/blog">All-post<a/></li>
+        {% for dataCategory in Categories  %}
+    <li class="nav-item"><a class="nav-link" href="/blog/category/{{dataCategory.category}}">{{dataCategory.category}}<a/></li>
+    
+    {% endfor %}</ul> {% for post in Posts %}
+  <h1 style="color: white">{{post.judul}}</h1>
+  <p style="color: white">{{post.body}}</p>
+  <p style="color: gray">Category : {{post.category}}</p>
+  <p style="color: gray">Publish : {{post.publish}}</p>
+  <p style="color: gray">Update : {{post.update}}</p>
+<a href="/blog/post/{{post.slug}}">{{post.judul}}</a>
+{% endfor %} {% endblock %}
+</a>
